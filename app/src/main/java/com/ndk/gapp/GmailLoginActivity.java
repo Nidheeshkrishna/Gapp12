@@ -26,6 +26,7 @@ public class GmailLoginActivity extends AppCompatActivity {
     private String password;
     private String email;
     private Button signInButton, fb, phonelogin;
+    String name1;
 
     private FirebaseAuth mAuth;
     @Override
@@ -57,7 +58,8 @@ public class GmailLoginActivity extends AppCompatActivity {
             // The user's ID, unique to the Firebase project. Do NOT use this value to
             // authenticate with your backend server, if you have one. Use
             // FirebaseUser.getIdToken() instead.
-            String uid = user.getUid();
+            //String uid = user.getUid();
+            name1=user.getUid();
         }
 
         signInButton.setOnClickListener(new View.OnClickListener() {
@@ -85,8 +87,13 @@ public class GmailLoginActivity extends AppCompatActivity {
                                 // Sign in success, update UI with the signed-in user's information
                                 //Log.d(TAG, "signInWithEmail:success");
                                 FirebaseUser user = mAuth.getCurrentUser();
+                                String gid=edt_email.getText().toString();
 
-                                Intent i = new Intent(GmailLoginActivity.this, LocationActivity.class);
+
+                                Intent i = new Intent(GmailLoginActivity.this, Loaction_finder_activity.class);
+                                i.putExtra("Gmail_id",gid);
+                                i.putExtra("UID",name1);
+
                                 startActivity(i);
 
                             } else {

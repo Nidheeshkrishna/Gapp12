@@ -45,12 +45,13 @@ public class LocationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_location);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        mfirebaseAuth = FirebaseAuth.getInstance();
+
 
          spinner = (AppCompatSpinner) findViewById(R.id.Spnr_location);
 
         // Spinner click listener
         //spinner.setOnItemSelectedListener((AdapterView.OnItemSelectedListener) this);
+        mfirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseStorage = FirebaseStorage.getInstance();
         mFirebaseDatabase=FirebaseDatabase.getInstance();
         mLocationDbReference= mFirebaseDatabase.getReference().child("db_location");
